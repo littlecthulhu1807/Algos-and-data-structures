@@ -1,50 +1,47 @@
 #include <iostream>
 
 
-
 int main(){
 
-    int testArray[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+    int testArray[] = {5,6,8,10,11,14,15,17,19,25};
+    int lenght = sizeof(testArray)/ sizeof(*testArray) - 1 ; // get the lenght by dividing the bit size by the type size
+
     int inputNumber{};
 
-    std::cout << "pick a number between 0 and 20\n";
-    std::cin >> inputNumber;
-
-    std::cout << "Sorting an array\n";
-
     int iterator {0};
-    int guess{};
+
     int low = 0;
-    int high = (sizeof(testArray)/ sizeof(*testArray)) - 1; // get the lrnght by dividing the bit size by the type size
-    int mid{};
+    int high = lenght;
     
     
+    std::cin >> inputNumber;
 
     do{
 
-        mid = (low + high) /2;
-        guess = testArray[mid];
+        int mid{(low + high) /2};
+        int guess = testArray[mid];
         std::cout << mid << "\n";
         std::cout << guess << "\n";
-        
+
         if(guess == inputNumber){
-            std::cout << "your number is at position: " << mid << '\n';
-            break;
-        }
-        
-        if(guess < mid){
-            low = mid + 1;
-        }
-        if(guess >= mid){
-            high = mid - 1;
+            std::cout << "your number is at position: " << mid << " of the array\n";
+            return 0;
         }
 
-        if(iterator >= 10){
+        if(guess < inputNumber){
+            low = mid + 1;
+        }
+        else{
+            high = mid -1;
+        }
+
+
+        if(iterator >= 5){
             std::cout << "could not find number\n";
-            break;
+            return 0;
         }
         iterator ++;
-    }while(guess != inputNumber);
+    }while(low <= high);
 
 
     return 0;
