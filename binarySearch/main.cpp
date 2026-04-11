@@ -1,5 +1,6 @@
 #include <iostream>
 
+int binarySearch(int inputArray[], int arrayLenght, int targetNumber);
 
 int main(){
 
@@ -8,23 +9,35 @@ int main(){
 
     int inputNumber{};
 
-    int low = 0;
-    int high = lenght;
+    
     
     std::cout << "Input a number\n";
     std::cin >> inputNumber;
 
+    binarySearch(testArray, lenght, inputNumber);
+
+    
+
+
+    return 0;
+}
+
+int binarySearch(int inputArray[], int arrayLenght, int targetNumber){
+
+    int low = 0;
+    int high = arrayLenght;
+
     do{
 
         int mid{(low + high) /2};
-        int guess = testArray[mid];
+        int guess = inputArray[mid];
 
-        if(guess == inputNumber){
+        if(guess == targetNumber){
             std::cout << "your number is at position: " << mid << " of the array\n";
             return 0;
         }
 
-        if(guess < inputNumber){
+        if(guess < targetNumber){
             low = mid + 1;
         }
         else{
@@ -33,7 +46,4 @@ int main(){
     }while(low <= high);
 
     std::cout << "could not find number\n";
-
-
-    return 0;
 }
