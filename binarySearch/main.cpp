@@ -16,24 +16,26 @@ int main(){
     int guess{};
     int low = 0;
     int high = (sizeof(testArray)/ sizeof(*testArray)) - 1; // get the lrnght by dividing the bit size by the type size
-
+    int mid{};
     
     
 
     do{
 
-        int mid = low + high;
+        mid = (low + high) /2;
         guess = testArray[mid];
+        std::cout << mid << "\n";
+        std::cout << guess << "\n";
         
         if(guess == inputNumber){
-            std::cout << "your number is at position: " << guess << '\n';
+            std::cout << "your number is at position: " << mid << '\n';
             break;
         }
         
         if(guess < mid){
             low = mid + 1;
         }
-        if(guess > mid){
+        if(guess >= mid){
             high = mid - 1;
         }
 
@@ -42,8 +44,6 @@ int main(){
             break;
         }
         iterator ++;
-
-        std::cout << low << " || " << high << '\n';
     }while(guess != inputNumber);
 
 
