@@ -8,20 +8,16 @@ int main(){
 
     int inputNumber{};
 
-    int iterator {0};
-
     int low = 0;
     int high = lenght;
     
-    
+    std::cout << "Input a number\n";
     std::cin >> inputNumber;
 
     do{
 
         int mid{(low + high) /2};
         int guess = testArray[mid];
-        std::cout << mid << "\n";
-        std::cout << guess << "\n";
 
         if(guess == inputNumber){
             std::cout << "your number is at position: " << mid << " of the array\n";
@@ -34,14 +30,9 @@ int main(){
         else{
             high = mid -1;
         }
-
-
-        if(iterator >= 5){
-            std::cout << "could not find number\n";
-            return 0;
-        }
-        iterator ++;
     }while(low <= high);
+
+    std::cout << "could not find number\n";
 
 
     return 0;
