@@ -1,6 +1,7 @@
 #include <iostream>
 
 int findSmallest(int* arrayIn, int lenght);
+int* removeSmallest();
 int* selectionSort(int* arrayIn, int lenght);
 
 int main(){
@@ -37,12 +38,17 @@ int findSmallest(int* arrayIn, int lenght){
     return smallest;
 }
 
+int* removeSmallest(){
+
+    return nullptr;
+}
+
 int* selectionSort(int* arrayIn, int lenght){
 
     int smallest{0};
     int* sortedArray = new int[lenght] {}; //needs to be dynamically allocated since it can't take lenght otherwise (sincle lenght is determined at runtime)
 
-    sortedArray[0] = findSmallest(arrayIn, lenght);
+    smallest = findSmallest();
 
     
     for(int i{1}; i < lenght; i++){
