@@ -1,8 +1,13 @@
 #include <iostream>
 
+//sort and sort help functions
 int findSmallest(int* arrayIn, int lenght);
 int* removeSmallest();
 int* selectionSort(int* arrayIn, int lenght);
+
+//array Help functions
+int* push(int* arrayIn, int& lenght, int element);
+void pop();
 
 int main(){
 
@@ -22,6 +27,7 @@ int main(){
 }
 
 
+//sort and sort help functions
 int findSmallest(int* arrayIn, int lenght){
 
     int smallest = arrayIn[0];
@@ -56,4 +62,12 @@ int* selectionSort(int* arrayIn, int lenght){
     }
 
     return sortedArray;
+}
+
+
+//array Help functions
+int* push(int* arrayIn, int& lenght, int element){
+    arrayIn[lenght + 1] = element;
+    lenght++;
+    return arrayIn;
 }
