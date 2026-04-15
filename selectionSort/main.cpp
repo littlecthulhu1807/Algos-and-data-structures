@@ -54,7 +54,7 @@ int* selectionSort(int* arrayIn, int lenght){
     int smallest{0};
     int* sortedArray = new int[lenght] {}; //needs to be dynamically allocated since it can't take lenght otherwise (sincle lenght is determined at runtime)
 
-    smallest = findSmallest();
+    //smallest = findSmallest();
 
     
     for(int i{1}; i < lenght; i++){
