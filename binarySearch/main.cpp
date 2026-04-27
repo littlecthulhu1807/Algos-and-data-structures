@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 int binarySearch(int inputArray[], int arrayLenght, int targetNumber);
 
 int main(){
