@@ -56,8 +56,9 @@ std::vector<int> qSort(std::vector<int> vecIn){
         std::vector<int> resulting {min, max};
         return resulting;
     }else{
-        int buffer{0};
-        int pivot{vecIn[0]};
+        size_t pivotPos{(vecIn.size() - 1) / 2};
+        size_t buffer{};
+        int pivot{vecIn[pivotPos]};
         std::vector<int> leftResulting{};
         std::vector<int> rightResulting{};
 
@@ -66,7 +67,7 @@ std::vector<int> qSort(std::vector<int> vecIn){
                 leftResulting.push_back(e);
             else if(e > pivot)
                 rightResulting.push_back(e);
-            else if(e == pivot && buffer > 0)
+            else if(e == pivot && buffer != pivotPos)
                 rightResulting.push_back(e);
             buffer++;
         }
